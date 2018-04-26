@@ -22,16 +22,15 @@
 
   @Component
   export default class HelloWorld extends Vue {
+    @State('profile') profile: ProfileState;
+    @Action('fetchData', {namespace}) fetchData: any;
+    @Getter('fullName', {namespace}) fullName: string;
 
     @Prop() private msg!: string;
 
     constructor() {
       super();
     }
-
-    @State('profile') profile: ProfileState;
-    @Action('fetchData', {namespace}) fetchData: any;
-    @Getter('fullName', {namespace}) fullName: string;
 
     mounted() {
       // fetching data as soon as the component's been mounted
